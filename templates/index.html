@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Performance Predictor</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=1">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+    <body>
+        <nav class="navbar">
+
+            <h2>Student Performance Predictor AI</h2>
+
+        </nav>
+        <div class="container">
+        <div class="card">
+        <h1>Predict Your Score..</h1>
+    
+    <form action="/predict" method="post">
+
+        <div class="input-box">
+            <i class="fa-solid fa-book"></i>
+
+            <input
+                type="number"
+                name="hours_studied"
+                placeholder="Hours Studied"
+                required
+            >
+        </div>
+        <div class="input-box">
+            <i class="fa-solid fa-chart-line"></i>
+
+            <input
+                type="number"
+                name="previous_scores"
+                placeholder="Previous Scores"
+                required
+            >
+        </div>
+        <div class="input-box">
+            <i class="fa-solid fa-bed"></i>
+
+            <input
+                type="number"
+                name="sleep_hours"
+                placeholder="Sleep Hours"
+                required
+            >
+        </div>
+        <div class="input-box">
+            <i class="fa-solid fa-file-lines"></i>
+
+            <input
+                type="number"
+                name="practice_papers"
+                placeholder="Practice Papers"
+                required
+            >
+        </div>
+        <button type="submit">Predict</button>
+    </form>
+
+    <div class="result-box">
+
+        <label>Predicted Score:</label>
+
+        <input
+            type="text"
+            value="{{ prediction_text }}"
+            placeholder="Result"
+            readonly
+        >
+
+    </div>
+    </div>
+    </div>
+    </body>
+</html>
